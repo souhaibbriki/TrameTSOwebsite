@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Trames d'Intervention</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af',
+                        accent: '#3b82f6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            min-height: 100vh;
+        }
+        
+        .category-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #93c5fd, transparent);
+            margin: 1.5rem 0;
+        }
+        
+        .content-box {
+            background-color: #f8fafc;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .copy-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background-color: #1e40af;
+        }
+        
+        .highlight {
+            background-color: #fffbeb;
+            border-left: 3px solid #f59e0b;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        .search-box:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-primary mb-3">Gestion des Trames d'Intervention</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">Application dédiée à la gestion des différentes trames utilisées pour les interventions techniques et la communication avec les clients</p>
+            
+            <div class="mt-8 max-w-2xl mx-auto">
+                <div class="relative">
+                    <input type="text" id="search" placeholder="Rechercher une catégorie ou un mot-clé..." 
+                           class="w-full px-4 py-3 pl-12 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm search-box">
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Categories Grid -->
+        <div id="categories" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Category 1 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">la ROP est occupée</h2>
+                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+#Pour AT# Info complémentaire #TSO panne longue# route occupée identifiée par l'OI.   
+
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+                        <!-- Category 1 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-red-800">Validation EXF commentaire et note ocapi </h2>
+                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+ MERCI DE FAIRE UN APPEL PREALABLE à COntact OI exemple : ACTIONS RESEAUX SERVICES (PLI00000011) Tel : Planification 0&&&&&&&& choix 3 pour le rdv  12/08/2025 à 10:00 RDV AVEC KAL/ORO KHALIL CT 0642683078 - CONTACT client :dupont (Tél. fixe / mobile : 066666666  
+Réaliser un appel téléphonique depuis OCEANE MERCI DE L INFORMER DU RESULTAT DE L INTERVENTION SI OI ABSENT ET/OU SI REPARATION NON OK, CLOTURER EN TSO.
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+<!-- Category 1 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-red-800">SMS EXF </h2>
+                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+ Bonjour, un rendez-vous commun est programmé le DD/MM - hh:mm
+ 
+Votre présence est recommandée.
+Merci de bien vouloir laisser votre matériel allumé afin de faciliter l'intervention.
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- Category 3 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">DPR dépassé</h2>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour, dpr dépassé. Merci de nous fournir un état d'avancement concernant ce dossier.
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 3 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Demandes EXF non validées</h2>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour, serait-il possible de nous fournir une réponse suite au proposition communiquée pour le RDV d'expertise.
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 4 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">DPR correspondant à EXF</h2>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour, Si la DPR correspond à notre demande d'expertise contradictoire, merci de nous communiquer les coordonnées de votre technicien intervenant.
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 5 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">CR Expertise en retard</h2>
+
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Pouvez-vous nous faire parvenir le compte rendu d'Expertise Merci.
+                    </div>
+                    <div class="flex justify-between items-center">
+
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 6 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Créneau non compatible</h2>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour, le créneau proposé de votre part ne convient pas notre disponibilité de techniciens , on a déjà envoyé une autre demande charté avec des nouvelles dates , merci de nous confirmer votre probable acceptation pour un RDV en commun.
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 7 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Alternative de créneau</h2>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour, le créneau proposé de votre part ne convient pas notre disponibilité de techniciens , serait-il possible de nous accepter le créneau proposé le 11/07/2025 à 10h
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 8 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">ERR05</h2>
+                        <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded">Problème</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+L'OI sera sollicité pour réparer la panne par une signalisation simple on attend le delais afin de poursuivre le traitement.
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Dernière utilisation: 25/06/2025</span>
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 9 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">ROI manuelle</h2>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Appel fait ce jour à notre client pour une prise de rdv manuelle injoignable sms envoyé qui contient une proposition d'une date pour le dd-mm-yy matin ou après midi en attente son retour.
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 10 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Demande EXF</h2>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+*DEP*/TSO/EXF/2505N32546/0139650362/OI
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 11 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Sécurisation RDV</h2>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Important</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Je me permets de revenir vers vous afin de sécuriser le rdv ROS (sans présence client) pour demain le 08-07-2025 à 10h , il est nécessaire d'envoyer un technicien pour déclarer l'échec trouvé à l'OI (ROP occupée) et nous fournir le code décharge généré de la part de l'agent OI (SFR).   
+Ps: pour toute infrastructure SFR , on peut pas déclarer une ROP occupée et passer à l'étape suivante sans code décharge communiqué de la part de l'OI.     
+
+Cordialement,
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 12 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Demande EXF</h2>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Standard</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour, Nous aurions besoin d’un créneau de rendez-vous commun avec SFR, à planifier entre J+4 et J+8 jours calendaires. Si possible, merci d’éviter les lundis matin, et de nous proposer une date avec un créneau parmi les suivants : 10h00, 13h00 ou 15h00.  
+Merci de nous préciser le plan de charge et le trigramme du technicien si technicien ORANGE. 
+
+Cdt. Bouguerra Mohamed  
+Tel : +33 4 28 00 03 22 
+Centre de service Pilotage TSO
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Dernière utilisation: 12/06/2025</span>
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 13 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Relance EXF</h2>
+                        <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Relance</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Je me permets de relancer ma demande concernant l’EXF. Merci de bien vouloir nous réserver un créneau de TD afin de pouvoir accélérer le traitement du TOC. 
+
+Cordialement, 
+Mohamed Bouguerra 
+Centre de service – Pilotage TSO 
+Tél. : +33 4 28 00 03 22
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Dernière utilisation: 10/06/2025</span>
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 14 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">ERRO5 (supractif)</h2>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Commentaire</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Intervention OI en cours : L'OI sera sollicité pour réparer la panne par une signalisation simple on attend le delais afin de poursuivre le traitement
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Dernière utilisation: 08/06/2025</span>
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 15 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">CR en retard</h2>
+                        <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded">Suivi</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour,   
+Je vous contact concernant une ROI/2505O14804/ 0147010269 RDV planifié pour le 30-06-2025   
+Serait-il possible de nous communiquer un état d'avancement, s'il vous plaît. Ce compte rendu est important pour nous afin de suivre les actions à mettre en place et de garantir la bonne avancée de notre dossier.   
+Merci par avance.   
+Cordialement,   
+Bouguerra Mohamed  
+Tel : +33 4 28 00 03 22 
+Centre de service Pilotage TSO
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 16 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">SMS fournisseur (EXF validé)</h2>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">Notification</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour à tous, Je vous informe que l'expertise contradictoire associée au ticket n°2503M21668  et ND 0139956207 a été validée. Celle-ci est planifiée pour  le 11/06/2025 10h00  
+Voici le contact du technicien OI :ACTIONS RESEAUX SERVICES (PLI00000011) Tel : Planification 0153268257 choix 3 // En cas d'absence du tech OI au RDV, si celui-ci est injoignable merci de contacter sa hotline au 0153268257.
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 17 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Problème de planification</h2>
+                        <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded">Océan</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+bonjour,   
+Merci pour votre retour  J’ai réservé le créneau le plus proche pour le 23/07 à 8h. Cependant, merci d’envoyer le technicien RRE Eugène Richner / IC8 à la date initialement prévue, soit le 22/07 à 10h.   
+Bien cordialement, Bouguerra Mohamed  
+Tel : +33 4 28 00 03 22 
+Centre de service Pilotage TSO
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 18 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Retour sans créneau</h2>
+                        <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded">Précision</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour,     
+Merci pour votre retour.     
+Pouvez-vous nous donner un horaire exact svp pour pouvoir solliciter l'OI.     
+cdt.    
+Nom Prenom
+Tel : +330100000000
+Centre de service Pilotage TSO
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 19 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Validation OI EXF différente</h2>
+                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">Absence</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Nous ne pourrons pas être présents pour l’EXF prévue le lundi 29 juillet à 10h
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category 20 -->
+            <div class="category-card bg-white rounded-lg overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-xl font-semibold text-gray-800">Clôture ticket EXF</h2>
+                        <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Clôture</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="content-box text-sm text-gray-700 mb-4">
+Bonjour,  
+Merci de bien vouloir clôturer le ticket afin que nous puissions assurer le suivi du traitement du dossier
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="copy-btn bg-primary text-white px-3 py-1.5 rounded text-sm flex items-center">
+                            <i class="fas fa-copy mr-1"></i> Copier
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-orange-600 text-sm">
+            <p>© 2025 Gestion des Trames d'Intervention | Tous droits réservés</p>
+            <p class="mt-2">Pilotage TSO
+        </footer>
+    </div>
+    
+    <!-- Floating Action Button -->
+    <button id="fab" class="fixed bottom-6 right-6 w-14 h-14 bg-primary rounded-full shadow-lg flex items-center justify-center text-white hover:bg-secondary transition-all">
+        <i class="fas fa-plus text-xl"></i>
+    </button>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-opacity opacity-0 hidden">
+        <i class="fas fa-check-circle mr-2"></i> Trame copiée dans le presse-papiers !
+    </div>
+    
+    <script>
+        // Copy functionality
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.parentElement.parentElement.querySelector('.content-box').textContent;
+                navigator.clipboard.writeText(content).then(() => {
+                    // Show toast notification
+                    const toast = document.getElementById('toast');
+                    toast.classList.remove('opacity-0', 'hidden');
+                    toast.classList.add('opacity-100');
+                    
+                    setTimeout(() => {
+                        toast.classList.remove('opacity-100');
+                        toast.classList.add('opacity-0');
+                        setTimeout(() => toast.classList.add('hidden'), 300);
+                    }, 2000);
+                });
+            });
+        });
+        
+        // Search functionality
+        document.getElementById('search').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const categories = document.querySelectorAll('.category-card');
+            
+            categories.forEach(card => {
+                const title = card.querySelector('h2').textContent.toLowerCase();
+                const content = card.querySelector('.content-box').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+        
+        // FAB functionality
+        document.getElementById('fab').addEventListener('click', function() {
+            alert('Fonctionnalité d\'ajout de nouvelle trame bientôt disponible !');
+        });
+        
+        // Highlight important info
+        const highlights = document.querySelectorAll('.content-box');
+        highlights.forEach(box => {
+            const content = box.innerHTML;
+            // Highlight dates
+            const dateRegex = /(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})|(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})/g;
+            const telRegex = /(\+?\d[\d\s]{8,}\d)/g;
+            
+            let newContent = content
+                .replace(dateRegex, '<span class="highlight">$&</span>')
+                .replace(telRegex, '<span class="highlight">$&</span>');
+            
+            box.innerHTML = newContent;
+        });
+    </script>
+</body>
+</html>
